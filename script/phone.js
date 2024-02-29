@@ -51,16 +51,36 @@ const displayPhones = phones =>{
 
         // appendchild
         phoneContainer.appendChild(phoneCard);
-    })
+    });
+
+    // hide loading spinner
+
+    toggleLoadingspinner(false);
 }
 
 // handle search button
 const handleSearch = () =>{
+  toggleLoadingspinner(true);
     const searchField = document.getElementById("search-field");
     const searchText = searchField.value;
-    console.log(searchText);
+    // console.log(searchText);
     loadPhone(searchText);
 }
+
+const toggleLoadingspinner = (isLoading) =>{
+  const loadingSpinner = document.getElementById("loading-spinner");
+  if(isLoading){
+    loadingSpinner.classList.remove("hidden");
+  }
+
+  else{
+    loadingSpinner.classList.add("hidden");
+  }
+  
+
+}
+
+
 
 
 // loadPhone();
